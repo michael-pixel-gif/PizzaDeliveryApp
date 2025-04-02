@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Delivery App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!--Header-->
+        <header>
+            <h1>🍕 Pizza Pickup Tracker</h1>
+            <p>Order your pizza and track it in real-time from preparation to pickup</p>
+        </header>
+        <!--Order Section-->
+        <div class="order-section" id="orderSection">
+            <h2 class="section-title">Create your Order</h2>
+
+            <!--Form-->
+            <div class="pizza-form">
+                <div class="form-group">
+                    <label for="pizzasize">Pizza Size</label>
+                    <select id="pizzaSize">
+                        <option value="small">Small (10")</option>
+                        <option value="medium">Medium(12")</option>
+                        <option value="large">Large(14")</option>
+                        <option value="Xlarge">Extra Large(16")</option>
+                    </select>
+
+                    <!--Crust type-->
+                    <label for="crustType">Crust Type</label>
+                    <select id="crustType">
+                        <option value="thin">Thin crust</option>
+                        <option value = "regular">Regular Crust</option>
+                        <option value="thick">thick Crust</option>
+                        <option value="stuffed">Stuffed Crust</option>
+                    </select>
+
+                    <!--toppings-->
+                    <label for="toppings">Toppings (multiple)</label>
+                    <select id="toppings" multiple size="4">
+                        <option value="pepperoni">Pepperoni</option>
+                        <option value="mushrooms">Mushrooms</option>
+                        <option value="onions">Onions</option>
+                        <option value="sausage">Sausage</option>
+                        <option value="bacon">Bacon</option>
+                        <option value="extra_cheese">Extra Cheese</option>
+                        <option value="peppers">Peppers</option>
+                        <option value="olives">Olives</option>
+                        <option value="pineapple">Pineapple</option>
+                    </select>
+
+                    <!--Contact-->
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" placeholder="Jane Doe">
+
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="123-456-7890">
+
+                    <!--Summary-->
+                    <div class="order-summary">
+                        <div class="summary-title">Order Summary</div>
+
+                        <div class="summary-item">
+                            <span>Medium (12") Regular Crust Pizza</span>
+                            <span>12.99</span>
+
+                            <span>Selected Toppings (0)</span>
+                            <span>$0.00</span>
+                        </div>
+
+                        <div class="summary-total">
+                            Total: $12.99
+                        </div>
+                    </div>
+
+                    <!--Order-->
+                    <div class="button-container">
+                        <button id="placeOrderBtn">Place Order</button>
+                    </div>
+                </div>
+            </div>
+            <!--End of form-->
+        </div>
+
+        <!--Tracker section-->
+        <div class="tracker-section" id="trackerSection">
+            <h2 class="section-title">Track your Order</h2>
+            
+            <div class="progress-bar-container">
+                <!--Progress bar-->
+                <div class="progress-bar">
+                    <div class="progress-fill" od="progressFill"></div>
+                </div>
+        </div>
+
+            <!--Progress steps-->
+            <div class="progress-steps">
+                <div class="progress-step active" id="step1">1
+                    <span class="step-label">Order Recieved</span>
+                </div>
+                <div class="progress-step active" id="step1">2
+                    <span class="step-label">preparing</span>
+                </div>
+                <div class="progress-step active" id="step1">3
+                    <span class="step-label">In the Oven</span>
+                </div>
+                <div class="progress-step active" id="step1">4
+                    <span class="step-label">Quality check</span>
+                </div>
+                <div class="progress-step active" id="step1">5
+                    <span class="step-label">Ready for Pickup</span>
+                </div>
+            </div>
+
+            <!--Delivery Info-->
+            <div class="delivery-info">
+                <div class="delivery-detail">
+                    <div class="detail-label">Ready In</div>
+                    <div class="detail-value" id="estimatedTime">--:--</div>
+                </div>
+
+                <div class="delivery-detail">
+                    <div class="delivery-label">Current Status</div>
+                    <div class = "detail-value" id="currentStatus">Order Received</div>
+                </div>
+
+                <div class="delivery-detail">
+                    <div class="delivery-label">Order Number</div>
+                    <div class="detail-value" id="orderNumber">#12345</div>
+                </div>
+            </div>
+        </div>
+        <!--Status Updates-->
+        <div class="status-updates">
+            <div class="status-title">Order updates</div>
+            <div class="update-list" id="updateList">
+                <!--Updates will be added here-->
+            </div>
+        </div>
+        <!--Timer Info-->
+        <div class="timer-info">
+            <h3>JS Timer Methods used:</h3>
+            <p>This tracker uses <code>setTimeout()</code> to simulate each stage of the pizza
+            preparation process. For Demonstartin purposes, the process has been accelerated 
+            (1 minute in real life = 1 second in the demo). The timer for pickup readiness uses 
+            <code>setInterval()</code> to update every second, and <code>clearinterval()</code>
+            is used when the pizza is read for pickup.</p>
+        </div>
+
+        <!--Buttons-->
+        <div class="button-container">
+            <button id="newOrderBtn">Place Another Order</button>
+            <button id="pickedUpBtn" style = "background-color: var(--accent-color); display:none;">
+                Mark as Picked Up
+            </button>
+        </div>
+
+        <!--Notification-->
+        <div class="notification" id="notification"> Your Order has been Placed!</div>
+
+        <!--footer-->
+        <footer>
+            <p>Pizza Pickup Tracker - Demonstarting JavaScript timer Methods for Real-Time updates</p>
+        </footer>
+        <!--End of tracker section-->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
